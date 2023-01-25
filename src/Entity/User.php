@@ -47,6 +47,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(nullable: true)]
     private ?int $num_card = null;
 
+    #[ORM\Column]
+    private ?bool $is_verified = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -185,6 +188,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setNumCard(?int $num_card): self
     {
         $this->num_card = $num_card;
+
+        return $this;
+    }
+
+    public function isIsVerified(): ?bool
+    {
+        return $this->is_verified;
+    }
+
+    public function setIsVerified(bool $is_verified): self
+    {
+        $this->is_verified = $is_verified;
 
         return $this;
     }
