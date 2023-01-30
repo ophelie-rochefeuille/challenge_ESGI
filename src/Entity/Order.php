@@ -29,11 +29,11 @@ class Order
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Art $art_id = null;
+    private ?Art $art = null;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?User $user_id = null;
+    private ?User $user = null;
 
     public function getId(): ?int
     {
@@ -88,26 +88,26 @@ class Order
         return $this;
     }
 
-    public function getArtId(): ?Art
+    public function getArt(): ?Art
     {
-        return $this->art_id;
+        return $this->art;
     }
 
-    public function setArtId(?Art $art_id): self
+    public function setArt(?Art $art): self
     {
-        $this->art_id = $art_id;
+        $this->art = $art;
 
         return $this;
     }
 
-    public function getUserId(): ?User
+    public function getUser(): ?User
     {
-        return $this->user_id;
+        return $this->user;
     }
 
-    public function setUserId(?User $user_id): self
+    public function setUser(?User $user): self
     {
-        $this->user_id = $user_id;
+        $this->user = $user;
 
         return $this;
     }

@@ -21,12 +21,12 @@ class Category
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $color_label = null;
 
-    #[ORM\OneToMany(mappedBy: 'category_id', targetEntity: Art::class)]
-    private Collection $art_id;
+    #[ORM\OneToMany(mappedBy: 'category', targetEntity: Art::class)]
+    private Collection $art;
 
     public function __construct()
     {
-        $this->art_id = new ArrayCollection();
+        $this->art = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -61,16 +61,16 @@ class Category
     /**
      * @return Collection<int, Art>
      */
-    public function getArtId(): Collection
+    public function getArt(): Collection
     {
-        return $this->art_id;
+        return $this->art;
     }
 
-    public function addArtId(Art $artId): self
+    public function addArtId(Art $art): self
     {
-        if (!$this->art_id->contains($artId)) {
-            $this->art_id->add($artId);
-            $artId->setCategoryId($this);
+        if (!$this->art->contains($art)) {
+            $this->art->add($art);
+            $art->setCategoryId($this);
         }
 
         return $this;

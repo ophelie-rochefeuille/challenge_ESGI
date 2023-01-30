@@ -30,16 +30,16 @@ class Art
     #[ORM\Column]
     private ?float $price = null;
 
-    #[ORM\ManyToOne(inversedBy: 'art_id')]
+    #[ORM\ManyToOne(inversedBy: 'art')]
     #[ORM\JoinColumn(nullable: true)]
-    private ?Category $category_id = null;
+    private ?Category $category = null;
 
     #[ORM\OneToMany(mappedBy: 'art', targetEntity: Comments::class)]
-    private Collection $comment_id;
+    private Collection $comment;
 
     public function __construct()
     {
-        $this->comment_id = new ArrayCollection();
+        $this->comment = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -107,14 +107,14 @@ class Art
         return $this;
     }
 
-    public function getCategoryId(): ?Category
+    public function getCategory(): ?Category
     {
-        return $this->category_id;
+        return $this->category;
     }
 
-    public function setCategoryId(?Category $category_id): self
+    public function setCategory(?Category $category): self
     {
-        $this->category_id = $category_id;
+        $this->category = $category;
 
         return $this;
     }
@@ -122,27 +122,27 @@ class Art
     /**
      * @return Collection<int, Comments>
      */
-    public function getCommentId(): Collection
+    public function getComment(): Collection
     {
-        return $this->comment_id;
+        return $this->comment;
     }
 
-    public function addCommentId(Comments $commentId): self
+    public function addComment(Comments $comment): self
     {
-        if (!$this->comment_id->contains($commentId)) {
-            $this->comment_id->add($commentId);
-            $commentId->setArt($this);
+        if (!$this->comment->contains($comment)) {
+            $this->comment->add($comment);
+            $comment->setArt($this);
         }
 
         return $this;
     }
 
-    public function removeCommentId(Comments $commentId): self
+    public function removeComment(Comments $comment): self
     {
-        if ($this->comment_id->removeElement($commentId)) {
+        if ($this->comment->removeElement($comment)) {
             // set the owning side to null (unless already changed)
-            if ($commentId->getArt() === $this) {
-                $commentId->setArt(null);
+            if ($comment->getArt() === $this) {
+                $comment->setArt(null);
             }
         }
 

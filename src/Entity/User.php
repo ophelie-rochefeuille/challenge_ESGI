@@ -44,11 +44,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $adress = null;
 
-    #[ORM\Column(nullable: true)]
-    private ?int $num_card = null;
 
     #[ORM\Column]
     private ?bool $is_verified = null;
+
+    #[ORM\ManyToOne]
+    private ?Address $address = null;
 
     public function getId(): ?int
     {
@@ -180,19 +181,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getNumCard(): ?int
-    {
-        return $this->num_card;
-    }
-
-    public function setNumCard(?int $num_card): self
-    {
-        $this->num_card = $num_card;
-
-        return $this;
-    }
-
-    public function isIsVerified(): ?bool
+    public function isVerified(): ?bool
     {
         return $this->is_verified;
     }
@@ -200,6 +189,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setIsVerified(bool $is_verified): self
     {
         $this->is_verified = $is_verified;
+
+        return $this;
+    }
+
+    public function getAddress(): ?Address
+    {
+        return $this->address;
+    }
+
+    public function setAddress(?Address $address): self
+    {
+        $this->address = $address;
 
         return $this;
     }
