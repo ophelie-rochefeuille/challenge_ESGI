@@ -56,3 +56,7 @@ Executer les requètes en DB
 Installation bundle
 
 `docker compose exec php composer require symfonycasts/verify-email-bundle`
+
+`docker compose exec php composer require symfony/sendinblue-mailer`
+
+`docker compose exec php composer require symfony/mailer`
