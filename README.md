@@ -51,3 +51,16 @@ Executer les requètes en DB
 `docker compose exec php bin/console doctrine:schema:update --force`
 
 `docker compose exec php bin/console d:s:u --force`
+
+### Bundles
+Installation bundle email
+
+`docker compose exec php composer require symfonycasts/verify-email-bundle`
+
+`docker compose exec php composer require symfony/sendinblue-mailer`
+
+`docker compose exec php composer require symfony/mailer`
+
+Installation bundle reset password
+
+`docker compose exec php composer require symfonycasts/reset-password-bundle`

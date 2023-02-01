@@ -20,7 +20,7 @@ class Address
     private ?string $name_street = null;
 
     #[ORM\Column]
-    private ?int $local_code = null;
+    private ?string $local_code = null;
 
     #[ORM\Column(length: 255)]
     private ?string $city = null;
@@ -57,12 +57,12 @@ class Address
         return $this;
     }
 
-    public function getLocalCode(): ?int
+    public function getLocalCode(): ?string
     {
         return $this->local_code;
     }
 
-    public function setLocalCode(int $local_code): self
+    public function setLocalCode(string $local_code): self
     {
         $this->local_code = $local_code;
 
