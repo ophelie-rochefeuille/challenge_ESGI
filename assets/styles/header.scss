@@ -1,0 +1,104 @@
+@import "fonts";
+
+@mixin grid {
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 9px;
+}
+
+
+header{
+  display: grid;
+  @include grid;
+  position: sticky;
+  z-index: 1;
+  max-height: 7rem;
+  padding: 0.5rem 0.5rem;
+  align-items: center;
+  button{
+    border: none;
+    font-size: 18px;
+    background-color: rgba(white, 0);
+    border-radius: 8px;
+    color: black;
+    padding: 0.25rem 1rem;
+    font-family: regular-code;
+    transition: 100ms;
+  }
+  button:hover{
+    background-color: rgba(white, 0.7);
+  }
+  img{
+    max-width: 4rem;
+    max-height: 4rem;
+    border-radius: 50%;
+  }
+  .first-div-header{
+    grid-column: 1 / span 1;
+    padding-left: 0.5rem;
+  }
+  .second-div-header{
+    grid-column: 11 / span 2;
+    display: flex;
+    justify-content: end;
+  }
+  .third-div-header{
+    grid-column: 6 / span 2;
+    display: flex;
+    justify-content: center;
+    button{
+      margin: 0rem 0.5rem;
+    }
+  }
+}
+
+.main-wrapper{
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+.first-div-accueil{
+  background: linear-gradient(to bottom, rgba(black, 0.4)  , rgba(255,255,255,1) 100%);
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  h1{
+    font-family: regular-code;
+    max-width: 70%;
+    text-align: center;
+  }
+
+}
+}
+
+.second-div-accueil{
+  margin-top: 7rem;
+display: flex;
+  justify-content: space-between;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sculpture-image,
+.sculpture-image-2,
+.sculpture-image-3{
+  max-height: 300px;
+  max-width: 300px;
+}
+
+.image-base{
+max-height: 400px;
+  max-width: 400px;
+}
+
+.carousel{
+  margin-top: 5rem;
+  max-width: 90%;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: regular-code;
+}
