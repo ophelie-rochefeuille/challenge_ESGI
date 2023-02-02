@@ -64,3 +64,11 @@ Installation bundle email
 Installation bundle reset password
 
 `docker compose exec php composer require symfonycasts/reset-password-bundle`
+
+Installation npm
+
+`docker compose exec php npm install`
+
+`docker compose exec php npm run build`
+
+`docker compose exec php npm run watch`
