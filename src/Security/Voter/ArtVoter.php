@@ -56,15 +56,15 @@ class ArtVoter extends Voter
     }
 
     private function canAdd(){
-        return $this->security->isGranted('ROLE_SELLER');
+        return $this->security->isGranted('ROLE_VENDOR');
     }
 
     private function canEdit(){
-        return $this->security->isGranted('ROLE_SELLER');
+        return $this->security->isGranted('ROLE_VENDOR');
     }
 
     private function canDelete(){
-        return $this->security->isGranted('ROLE_SELLER');
+        return $this->security->isGranted('ROLE_VENDOR');
     }
 }
 

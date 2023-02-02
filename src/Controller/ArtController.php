@@ -25,6 +25,9 @@ class ArtController extends AbstractController
     public function new(Request $request, ArtRepository $artRepository): Response
     {
         $art = new Art();
+
+        $this->denyAccessUnlessGranted('ART_NEW', $art);
+
         $form = $this->createForm(ArtType::class, $art);
         $form->handleRequest($request);
 
@@ -34,7 +37,7 @@ class ArtController extends AbstractController
             return $this->redirectToRoute('app_art_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('art/new.html.twig', [
+        return $this->render('art/new.html.twig', [
             'art' => $art,
             'form' => $form,
         ]);
@@ -51,6 +54,7 @@ class ArtController extends AbstractController
     #[Route('/{id}/edit', name: 'app_art_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Art $art, ArtRepository $artRepository): Response
     {
+        $this->denyAccessUnlessGranted('ART_EDIT', $art);
         $form = $this->createForm(ArtType::class, $art);
         $form->handleRequest($request);
 
@@ -69,6 +73,7 @@ class ArtController extends AbstractController
     #[Route('/{id}', name: 'app_art_delete', methods: ['POST'])]
     public function delete(Request $request, Art $art, ArtRepository $artRepository): Response
     {
+        $this->denyAccessUnlessGranted('ART_DELETE', $art);
         if ($this->isCsrfTokenValid('delete'.$art->getId(), $request->request->get('_token'))) {
             $artRepository->remove($art, true);
         }
