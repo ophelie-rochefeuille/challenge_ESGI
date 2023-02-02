@@ -10,6 +10,7 @@ header{
   display: grid;
   @include grid;
   position: sticky;
+  top: 0px;
   z-index: 1;
   max-height: 7rem;
   padding: 0.5rem 0.5rem;
@@ -94,11 +95,27 @@ max-height: 400px;
   max-width: 400px;
 }
 
-.carousel{
+.second-main-div{
   margin-top: 5rem;
-  max-width: 90%;
-  height: 300px;
-  margin-left: auto;
-  margin-right: auto;
-  font-family: regular-code;
+  width: 100%;
+  p{
+    font-family: "regular-code";
+    font-size: 28px;
+    text-align: center;
+  }
+  .painting{
+    margin: 3rem;
+    max-width: 300px;
+    max-height: 300px;
+    border-radius: 8px;
+    box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.7);
+  }
+}
+.carousel{
+  margin-top: 2rem;
+}
+
+.first-div-tab,
+.third-div-tab{
+  background-color: #ECF9FF;
 }
