@@ -65,6 +65,10 @@ Installation bundle reset password
 
 `docker compose exec php composer require symfonycasts/reset-password-bundle`
 
+Installation bundle Vich uploader
+
+`docker compose exec php composer require vich/uploader-bundle`
+
 Installation npm
 
 `docker compose exec php npm install`

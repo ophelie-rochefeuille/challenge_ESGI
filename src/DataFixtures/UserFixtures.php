@@ -36,7 +36,7 @@ class UserFixtures extends Fixture
                 ->setFirstname($faker->firstName)
                 ->setLastname($faker->lastName)
                 ->setEmail($faker->email)
-                ->setPassword($faker->password())
+                ->setPassword(password_hash($faker->password()))
                 ->setBirthday(new \DateTime($faker->date('Y-m-d', '2005-01-01')))
                 ->setPseudo($faker->userName)
                 ->setRoles([])
@@ -47,12 +47,12 @@ class UserFixtures extends Fixture
         }
 
 
-            for ($i=0; $i<2; $i++) {
+        for ($i=0; $i<2; $i++) {
             $object = (new User())
                 ->setFirstname($faker->firstName)
                 ->setLastname($faker->lastName)
                 ->setEmail($faker->email)
-                ->setPassword($faker->password())
+                ->setPassword(password_hash($faker->password()))
                 ->setBirthday(new \DateTime($faker->date('Y-m-d', '2005-01-01')))
                 ->setPseudo($faker->userName)
                 ->setRoles(["ROLE_VENDOR"])
@@ -67,7 +67,7 @@ class UserFixtures extends Fixture
                 ->setFirstname($faker->firstName)
                 ->setLastname($faker->lastName)
                 ->setEmail($faker->email)
-                ->setPassword($faker->password())
+                ->setPassword(password_hash($faker->password()))
                 ->setBirthday(new \DateTime($faker->date('Y-m-d', '2005-01-01')))
                 ->setPseudo($faker->userName)
                 ->setRoles(["ROLE_BUYER"])
