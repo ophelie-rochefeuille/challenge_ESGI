@@ -16,7 +16,7 @@
                 <th>Lastname</th>
                 <th>Birthday</th>
                 <th>Pseudo</th>
-                <th>Adress</th>
+                <th>Address</th>
                 <th>Is_verified</th>
                 <th>actions</th>
             </tr>
@@ -32,11 +32,17 @@
                 <td>{{ user.lastname }}</td>
                 <td>{{ user.birthday ? user.birthday|date('Y-m-d') : '' }}</td>
                 <td>{{ user.pseudo }}</td>
-                <td>{{ user.address }}</td>
+                <td>
+                    {% for address in user.address  %}
+                        {{ address.number_street }}
+                        {{ address.name_street }}
+                        {{ address.local_code }}
+                    {% endfor %}
+                </td>
                 <td>{{ user.isVerified ? 'Yes' : 'No' }}</td>
                 <td>
-                    <a href="{{ path('app_user_show', {'id': user.id}) }}">show</a>
-                    <a href="{{ path('app_user_edit', {'id': user.id}) }}">edit</a>
+                    <a href="{{ path('admin_user_show', {'id': user.id}) }}">show</a>
+                    <a href="{{ path('admin_user_edit', {'id': user.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -47,5 +53,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_user_new') }}">Create new</a>
+    <a href="{{ path('admin_user_new') }}">Create new</a>
 {% endblock %}

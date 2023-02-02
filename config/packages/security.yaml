@@ -33,6 +33,10 @@ security:
     access_control:
          - { path: ^/admin, roles: ROLE_ADMIN }
          - { path: ^/profile, roles: ROLE_USER }
+         - { path: ^/seller, roles: ROLE_SELLER }
+
+    role_hierarchy:
+        ROLE_SELLER: ROLE_USER
 
 when@test:
     security:
