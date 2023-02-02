@@ -83,13 +83,6 @@ display: flex;
   margin-right: auto;
 }
 
-.sculpture-image,
-.sculpture-image-2,
-.sculpture-image-3{
-  max-height: 300px;
-  max-width: 300px;
-}
-
 .image-base{
 max-height: 400px;
   max-width: 400px;
@@ -114,7 +107,11 @@ max-height: 400px;
 .carousel{
   margin-top: 2rem;
 }
-
+a{
+  position: relative;
+  top: 20%;
+  content-visibility: hidden;
+}
 .first-div-tab,
 .second-div-tab,
 .third-div-tab{
@@ -146,4 +143,29 @@ max-height: 400px;
 .first-div-tab,
 .third-div-tab{
   background-color: #ECF9FF;
+}
+
+footer{
+  margin-top: 5rem;
+  font-family: "regular-code";
+  padding: 3rem;
+  display: grid;
+  @include grid;
+  background-color: #D0B9A8;
+.first-div-footer{
+  grid-column: 2 / span 3;
+  display: flex;
+  flex-direction: column;
+}
+  .second-div-footer{
+    grid-column: 7 / span 5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    img{
+      max-width: 4rem;
+      max-height: 4rem;
+      border-radius: 50%;
+    }
+  }
 }
