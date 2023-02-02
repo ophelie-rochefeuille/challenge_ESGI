@@ -14,7 +14,7 @@ class Address
     private ?int $id = null;
 
     #[ORM\Column]
-    private ?int $Number_street = null;
+    private ?int $number_street = null;
 
     #[ORM\Column(length: 255)]
     private ?string $name_street = null;
@@ -35,12 +35,12 @@ class Address
 
     public function getNumberStreet(): ?int
     {
-        return $this->Number_street;
+        return $this->number_street;
     }
 
-    public function setNumberStreet(int $Number_street): self
+    public function setNumberStreet(int $number_street): self
     {
-        $this->Number_street = $Number_street;
+        $this->number_street = $number_street;
 
         return $this;
     }

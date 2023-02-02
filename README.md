@@ -61,9 +61,15 @@ Installation bundle email
 
 `docker compose exec php composer require symfony/mailer`
 
+`docker compose exec php composer require symfony/sendgrid-mailer`
+
 Installation bundle reset password
 
 `docker compose exec php composer require symfonycasts/reset-password-bundle`
+
+Installation bundle Vich uploader
+
+`docker compose exec php composer require vich/uploader-bundle`
 
 Installation npm
 

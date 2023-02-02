@@ -23,8 +23,8 @@ class RegistrationFormType extends AbstractType
             ->add('firstname',TextType::class)
             ->add('lastname', TextType::class)
             ->add('pseudo', TextType::class)
-            ->add('birthday', DateType::class, [
-                'widget' => 'single-text',
+            ->add('birthday', BirthdayType::class, [
+                'widget' => "single_text"
             ])
             ->add('email', EmailType::class)
             ->add('plainPassword', PasswordType::class, [
@@ -44,7 +44,6 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('birthday')
         ;
     }
 

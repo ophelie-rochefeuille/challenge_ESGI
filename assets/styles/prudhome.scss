@@ -4,8 +4,12 @@
   grid-template-columns: repeat(12, 1fr);
   column-gap: 9px;
 }
-
-
+* {
+  color: white;
+}
+.carousel-inner {
+  background-color: black !important;
+}
 header{
   display: grid;
   @include grid;
@@ -18,15 +22,15 @@ header{
   button{
     border: none;
     font-size: 18px;
-    background-color: rgba(white, 0);
+    background-color: rgba(black, 0);
     border-radius: 8px;
-    color: black;
+    color: white;
     padding: 0.25rem 1rem;
     font-family: regular-code;
     transition: 100ms;
   }
   button:hover{
-    background-color: rgba(white, 0.7);
+    background-color: rgba(#ff914d, 0.7);
   }
   img{
     max-width: 4rem;
@@ -58,10 +62,10 @@ header{
   position: absolute;
   top: 0;
 .first-div-accueil{
-  background: linear-gradient(to bottom, rgba(black, 0.4)  , rgba(255,255,255,1) 100%);
+  background: linear-gradient(to bottom, rgba(black, 0.4)  , rgb(32, 32, 32) 100%);
   background-repeat: no-repeat;
   background-size: contain;
-  height: 300px;
+  height: 18.75em;
   display: flex;
   justify-content: center;
   align-items: end;
@@ -84,8 +88,8 @@ display: flex;
 }
 
 .image-base{
-max-height: 400px;
-  max-width: 400px;
+max-height: 25em;
+  max-width: 25em;
 }
 
 .second-main-div{
@@ -93,7 +97,7 @@ max-height: 400px;
   width: 100%;
   p{
     font-family: "regular-code";
-    font-size: 28px;
+    font-size: 1.75em;
     text-align: center;
   }
   .painting{
@@ -101,24 +105,22 @@ max-height: 400px;
     max-width: 300px;
     max-height: 300px;
     border-radius: 8px;
-    box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.7);
+    box-shadow: 2px 3px 6px rgba(129, 38, 38, 0.7);
   }
 }
 .carousel{
   margin-top: 2rem;
 }
-
+a{
+  position: relative;
+  top: 20%;
+  content-visibility: hidden;
+}
 .first-div-tab,
 .second-div-tab,
 .third-div-tab{
-
   display: grid;
   @include grid;
-  a{
-    position: relative;
-    top: 20%;
-    content-visibility: hidden;
-  }
   .painting1,
   .painting3{
     grid-column: 2/ span 3;
@@ -127,7 +129,7 @@ max-height: 400px;
     grid-column: 9/ span 3;
   }
   p{
-    font-size: 20px;
+    font-size: 1.25em;
     text-align: justify;
   }
   .paraph1,
@@ -139,13 +141,12 @@ max-height: 400px;
     grid-column: 2/ span 5;
     align-self: center;
   }
-
 }
 
 
 .first-div-tab,
 .third-div-tab{
-  background-color: #ECF9FF;
+  background-color: #181818;
 }
 
 footer{
@@ -154,7 +155,9 @@ footer{
   padding: 3rem;
   display: grid;
   @include grid;
-  background-color: #D0B9A8;
+  // background-color: #444444;
+  background: linear-gradient(to top, rgba(32,32,32, 0.4)  , rgb(32, 32, 32) 100%);
+
 .first-div-footer{
   grid-column: 2 / span 3;
   display: flex;
@@ -171,96 +174,4 @@ footer{
       border-radius: 50%;
     }
   }
-}
-#notfound {
-  position: relative;
-  height: 100vh;
-}
-#notfound .notfound h1{
-  font-family:'Courier New', Courier, monospace;
-  color: #ececec;
-  font-weight: 900;
-  font-size: 276px;
-  margin: 0;
-  position: absolute;
-  left: 50%;
-  right: 50%;
-  transform: translate(-50%, -50%);
-}
-#notfound > img {
-  height: 92%;
-  width: 156%;
-  position: fixed;
-  left: -28%;
-  top: 2%;
-}
-#notfound .notfound img{
-  font-family:'Courier New', Courier, monospace;
-  color: #ececec;
-  font-weight: 900;
-  font-size: 276px;
-  margin: 0;
-  position: absolute;
-  left: 125%;
-  top: 228%;
-  transform: translate(-50%, -50%);
-}
-#notfound .notfound {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%,-50%);
-}
-.notfound .notfound404 {
-  position: absolute;
-  height: 100px;
-  top: 0;
-  left: 23%;
-  transform: translateX(-50%);
-  z-index: -1;
-}
-.notfound h2{
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 46px;
-  color: #000;
-  font-weight: 900;
-  text-transform: uppercase;
-  margin: 0;
-}
-
-.notfound p{
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 16px;
-  color: #000;
-  font-weight: 400;
-  text-transform: uppercase;
-  margin-top: 15px;
-}
-.notfound  a{
-  text-decoration: none;
-  color: black;
-  cursor: default;
-}
-.notfound > a{
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 14px;
-  text-decoration: none;
-  text-transform: uppercase;
-  background: #189cf0;
-  // display: inline-block;
-  padding: 16px 38px;
-  border: 2px solid transparent;
-  border-radius: 40px;
-  color: #fff;
-  font-weight: 400;
-  transition: .2s all;
-}
-
-.notfound {
-  max-width: 920px;
-  width: 100%;
-  line-height: 1.4;
-  text-align: center;
-  padding-left: 15px;
-  padding-right: 15px;
 }
