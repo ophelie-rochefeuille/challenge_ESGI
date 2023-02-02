@@ -27,8 +27,8 @@
                 <td>{{ art.artist }}</td>
                 <td>{{ art.price }}</td>
                 <td>
-                    <a href="{{ path('app_art_show', {'id': art.id}) }}">show</a>
-                    <a href="{{ path('app_art_edit', {'id': art.id}) }}">edit</a>
+                    <a href="{{ path('admin_art_show', {'id': art.id}) }}">show</a>
+                    <a href="{{ path('admin_art_edit', {'id': art.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
