@@ -44,7 +44,7 @@ class Art
 
     #[ORM\Column(length: 255)]
     #[ORM\JoinColumn(nullable: true)]
-    private ?File $imageFile = null;
+    private ?string $imageFile = null;
 
     public function __construct()
     {
