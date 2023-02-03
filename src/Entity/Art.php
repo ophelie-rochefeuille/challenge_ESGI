@@ -37,13 +37,13 @@ class Art
     #[ORM\OneToMany(mappedBy: 'art', targetEntity: Comments::class)]
     private Collection $comment;
 
-    #[ORM\Column(length: 255)]
-    #[ORM\JoinColumn(nullable: true)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $image = null;
 
-    #[ORM\Column(length: 255)]
-    #[ORM\JoinColumn(nullable: true)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $imageFile = null;
+
+
 
     public function __construct()
     {
@@ -162,7 +162,7 @@ class Art
         return $this->image;
     }
 
-    public function setImage(string $image): self
+    public function setImage(?string $image): self
     {
         $this->image = $image;
 
@@ -174,10 +174,11 @@ class Art
         return $this->imageFile;
     }
 
-    public function setImageFile(string $imageFile = null): self
+    public function setImageFile(?string $imageFile): self
     {
         $this->imageFile = $imageFile;
 
         return $this;
     }
+
 }
