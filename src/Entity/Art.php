@@ -8,7 +8,6 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ArtRepository::class)]
-#[Vich\Uploadable]
 class Art
 {
     #[ORM\Id]
