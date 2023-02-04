@@ -1,4 +1,6 @@
 @import "formulaire.scss";
+@import "glitch.scss";
+@import "glitch2.scss";
 @import "~bootstrap/scss/bootstrap";
 @mixin grid {
     grid-template-columns: repeat(12, 1fr);
