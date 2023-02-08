@@ -6,6 +6,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
+use Symfony\Component\Mailer\Header\TagHeader;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
@@ -34,6 +35,13 @@ class EmailVerifier
         $context['expiresAtMessageData'] = $signatureComponents->getExpirationMessageData();
 
         $email->context($context);
+
+        $params = ['prenom' => $user->getFirstname(), 'link' => $context['signedUrl']];
+
+        $email->getHeaders()
+            ->add(new TagHeader('registration-confirm'))
+            ->addTextHeader('templateId', 2)
+            ->addParameterizedHeader('params', 'params', $params);
 
 
         try {
