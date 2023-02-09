@@ -57,8 +57,8 @@
                                 <p class="card-text">{{ art.height }} de hauteur</p>
                                 <p class="card-text"> De {{ art.artist }} </p>
                                 <p class="card-text">{{ art.price }} € </p>
-                                <a href="#" class="btn btn-primary">Ajouter au panier</a>
-                                <a class="btn btn-primary" href="{{ path('admin_art_show', {'id': art.id}) }}">Voir les détails</a>
+                                <a href="{{ path('buyer_cart_add', {'id': art.id}) }}" class="btn btn-primary">Ajouter au panier</a>
+                                <a class="btn btn-primary" href="{{ path('app_art_show', {'id': art.id}) }}">Voir les détails</a>
                             </div>
                         </div>
 
