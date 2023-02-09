@@ -10,6 +10,8 @@ ARG CADDY_VERSION=2
 # Prod image
 FROM php:${PHP_VERSION}-fpm-alpine AS app_php
 
+USER root
+
 
 # Allow to use development versions of Symfony
 ARG STABILITY="stable"
@@ -129,6 +131,8 @@ RUN set -eux; \
 
 # Dev image
 FROM app_php AS app_php_dev
+
+USER root
 
 ENV APP_ENV=dev XDEBUG_MODE=off
 VOLUME /srv/app/var/

@@ -8,7 +8,7 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<div class="example-wrapper">
+
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
@@ -43,28 +43,32 @@
 
     <h1>Catalogue des Oeuvres en vente</h1>
 
-        {% for art in art %}
 
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">{{  art.label }}</h5>
-                    <p class="card-text">{{ art.description }}</p>
-                    <p class="card-text">{{ art.height }} de hauteur</p>
-                    <p class="card-text"> De {{ art.artist }} </p>
-                    <p class="card-text">{{ art.price }} € </p>
-                    <a href="#" class="btn btn-primary">Ajouter au panier</a>
-                    <a class="btn btn-primary" href="{{ path('admin_art_show', {'id': art.id}) }}">Voir les détails</a>
+
+            <div class="container text-center">
+                <div class="row row-cols-12">
+                    {% for art in art %}
+
+                        <div class="card col m-3" style="width: 18rem;">
+                            <img src="{{ asset('uploads/arts/' ~ art.imageFile) }}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">{{  art.label }}</h5>
+                                <p class="card-text">{{ art.description }}</p>
+                                <p class="card-text">{{ art.height }} de hauteur</p>
+                                <p class="card-text"> De {{ art.artist }} </p>
+                                <p class="card-text">{{ art.price }} € </p>
+                                <a href="#" class="btn btn-primary">Ajouter au panier</a>
+                                <a class="btn btn-primary" href="{{ path('admin_art_show', {'id': art.id}) }}">Voir les détails</a>
+                            </div>
+                        </div>
+
+                    {% else %}
+                        <tr>
+                            <td colspan="7">no records found</td>
+                        </tr>
+                    {% endfor %}
+
                 </div>
             </div>
 
-        {% else %}
-            <tr>
-                <td colspan="7">no records found</td>
-            </tr>
-        {% endfor %}
-
-
-
-</div>
 {% endblock %}

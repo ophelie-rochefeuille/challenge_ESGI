@@ -6,6 +6,7 @@ use App\Entity\Art;
 use App\Form\ArtType;
 use App\Repository\ArtRepository;
 use App\Service\PictureService;
+use App\Service\PictureUpload;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -30,7 +31,7 @@ class ArtController extends AbstractController
      * @throws Exception
      */
     #[Route('/new', name: 'new', methods: ['GET', 'POST'])]
-    public function new(Request $request, ArtRepository $artRepository, PictureService $pictureService, SluggerInterface $slugger): Response
+    public function new(Request $request, ArtRepository $artRepository, PictureUpload $pictureUpload, SluggerInterface $slugger): Response
     {
         $art = new Art();
         $form = $this->createForm(ArtType::class, $art);
@@ -44,27 +45,8 @@ class ArtController extends AbstractController
 
 
             if ($picture) {
-                $originalFilename = pathinfo($picture->getClientOriginalName(), PATHINFO_FILENAME);
-                // this is needed to safely include the file name as part of the URL
-                $safeFilename = $slugger->slug($originalFilename);
-
-                $newFilename = $safeFilename.'-'.uniqid().'.'.$picture->guessExtension();
-
-
-                // Move the file to the directory where brochures are stored
-                try {
-                    $picture->move(
-                        $this->getParameter('image_directory'),
-                        $newFilename
-                    );
-
-                } catch (FileException $e) {
-                    dd($e);
-                }
-
-                // updates the 'brochureFilename' property to store the PDF file name
-                // instead of its contents
-                $art->setImageFile($newFilename);
+                    $pictureFileName = $pictureUpload->upload($picture);
+                    $art->setImageFile($pictureFileName);
             }
             $artRepository->save($art, true);
             return $this->redirectToRoute('admin_art_index', [], Response::HTTP_SEE_OTHER);
